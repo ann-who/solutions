@@ -1,2 +1,2 @@
 # solutions
-training tasks solutions
+training tasks' solutions
