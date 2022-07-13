@@ -4,15 +4,15 @@ import 'dart:convert';
 import 'dart:io';
 
 void main() {
-  int horseA = int.parse(stdin.readLineSync(encoding: utf8)!);
-  int horseB = int.parse(stdin.readLineSync(encoding: utf8)!);
-  int otherA = int.parse(stdin.readLineSync(encoding: utf8)!);
-  int otherB = int.parse(stdin.readLineSync(encoding: utf8)!);
+  int horseX = int.parse(stdin.readLineSync(encoding: utf8)!);
+  int horseY = int.parse(stdin.readLineSync(encoding: utf8)!);
+  int otherX = int.parse(stdin.readLineSync(encoding: utf8)!);
+  int otherY = int.parse(stdin.readLineSync(encoding: utf8)!);
 
-  if (horseA != otherA &&
-      horseB != otherB &&
-      (horseA + horseB) != (otherA + otherB) &&
-      (horseA - horseB) != (otherA - otherB)) {
+  int diffX = (horseX - otherX).abs();
+  int diffY = (horseY - otherY).abs();
+
+  if ((diffX == 1 && diffY == 2) || (diffX == 2 && diffY == 1)) {
     stdout.write('YES');
   } else {
     stdout.write('NO');

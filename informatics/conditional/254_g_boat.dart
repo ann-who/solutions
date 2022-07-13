@@ -4,12 +4,15 @@ import 'dart:convert';
 import 'dart:io';
 
 void main() {
-  int boatA = int.parse(stdin.readLineSync(encoding: utf8)!);
-  int boatB = int.parse(stdin.readLineSync(encoding: utf8)!);
-  int otherA = int.parse(stdin.readLineSync(encoding: utf8)!);
-  int otherB = int.parse(stdin.readLineSync(encoding: utf8)!);
+  int boatX = int.parse(stdin.readLineSync(encoding: utf8)!);
+  int boatY = int.parse(stdin.readLineSync(encoding: utf8)!);
+  int otherX = int.parse(stdin.readLineSync(encoding: utf8)!);
+  int otherY = int.parse(stdin.readLineSync(encoding: utf8)!);
 
-  if (boatA == otherA || boatB == otherB) {
+  bool bothOnSameHorizontal = (boatY == otherY);
+  bool bothOnSameVertical = (boatX == otherX);
+
+  if (bothOnSameHorizontal || bothOnSameVertical) {
     stdout.write('YES');
   } else {
     stdout.write('NO');

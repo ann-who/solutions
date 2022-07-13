@@ -7,13 +7,13 @@ void main() {
   int a = int.parse(stdin.readLineSync(encoding: utf8)!);
   int b = int.parse(stdin.readLineSync(encoding: utf8)!);
 
-  int x = (0 - b) ~/ a;
+  int x = -b ~/ a;
 
-  if (b % a == 0) {
-    stdout.write(x);
+  if (a == 0 || b % a != 0) {
+    stdout.write('NO');
   } else if (b == 0) {
     stdout.write('INF');
   } else {
-    stdout.write('NO');
+    stdout.write(x);
   }
 }

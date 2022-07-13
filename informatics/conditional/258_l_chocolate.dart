@@ -8,9 +8,11 @@ void main() {
   int chocolateWidth = int.parse(stdin.readLineSync(encoding: utf8)!);
   int piecesNeeded = int.parse(stdin.readLineSync(encoding: utf8)!);
 
-  if (piecesNeeded < chocolateHeight * chocolateWidth &&
-      (piecesNeeded % chocolateHeight == 0 ||
-          piecesNeeded % chocolateWidth == 0)) {
+  bool isEnoughPieces = (piecesNeeded < chocolateHeight * chocolateWidth);
+  bool canSplitByHorizontal = (piecesNeeded % chocolateHeight == 0);
+  bool canSplitByVertical = (piecesNeeded % chocolateWidth == 0);
+
+  if (isEnoughPieces && (canSplitByHorizontal || canSplitByVertical)) {
     stdout.write('YES');
   } else {
     stdout.write('NO');
