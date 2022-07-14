@@ -8,7 +8,7 @@ void main() {
 
   double division = 0.0;
 
-  for (var i = 2; i < number + 1; i++) {
+  for (var i = 2; i <= number; i++) {
     division += 1 / (i * i);
   }
 

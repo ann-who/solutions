@@ -9,7 +9,7 @@ void main() {
 
   int finalAnswer = 1;
 
-  for (var i = 1; i < degree + 1; i++) {
+  for (var i = 1; i <= degree; i++) {
     finalAnswer *= number;
   }
 

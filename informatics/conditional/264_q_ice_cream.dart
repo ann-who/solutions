@@ -6,7 +6,10 @@ import 'dart:io';
 void main() {
   int wantedIceCream = int.parse(stdin.readLineSync(encoding: utf8)!);
 
-  if (wantedIceCream % 3 == 0 || wantedIceCream % 5 == 0) {
+  bool isAcceptable =
+      wantedIceCream >= 3 && wantedIceCream != 4 && wantedIceCream != 7;
+
+  if (isAcceptable) {
     stdout.write('YES');
   } else {
     stdout.write('NO');

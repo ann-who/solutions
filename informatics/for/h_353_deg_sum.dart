@@ -9,7 +9,7 @@ void main() {
   int sumOfNumbersInDegree = 0;
   int numberInDegree = 1;
 
-  for (var i = 1; i < degree + 1; i++) {
+  for (var i = 1; i <= degree; i++) {
     numberInDegree *= 2;
     sumOfNumbersInDegree += numberInDegree;
   }

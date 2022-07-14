@@ -9,13 +9,12 @@ void main() {
   int x2 = int.parse(stdin.readLineSync(encoding: utf8)!);
   int y2 = int.parse(stdin.readLineSync(encoding: utf8)!);
 
-  if (x1 > 0 && x2 > 0 && y1 > 0 && y2 > 0) {
-    stdout.write('YES');
-  } else if (x1 < 0 && x2 < 0 && y1 < 0 && y2 < 0) {
-    stdout.write('YES');
-  } else if (x1 < 0 && x2 < 0 && y1 > 0 && y2 > 0) {
-    stdout.write('YES');
-  } else if (x1 > 0 && x2 > 0 && y1 < 0 && y2 < 0) {
+  bool bothIn1Square = (x1 > 0 && x2 > 0 && y1 > 0 && y2 > 0);
+  bool bothIn2Square = (x1 < 0 && x2 < 0 && y1 > 0 && y2 > 0);
+  bool bothIn3Square = (x1 < 0 && x2 < 0 && y1 < 0 && y2 < 0);
+  bool bothIn4Square = (x1 > 0 && x2 > 0 && y1 < 0 && y2 < 0);
+
+  if (bothIn1Square || bothIn2Square || bothIn3Square || bothIn4Square) {
     stdout.write('YES');
   } else {
     stdout.write('NO');

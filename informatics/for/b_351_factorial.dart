@@ -8,7 +8,7 @@ void main() {
 
   int factorial = 1;
 
-  for (var i = 1; i < number + 1; i++) {
+  for (var i = 1; i <= number; i++) {
     factorial *= i;
   }
 

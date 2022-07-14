@@ -9,7 +9,7 @@ void main() {
   double division = 0.0;
   int positiveNumber = number.abs();
 
-  for (var i = 1; i < positiveNumber + 1; i++) {
+  for (var i = 1; i <= positiveNumber; i++) {
     division += 1 / i;
   }
 

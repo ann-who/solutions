@@ -8,20 +8,21 @@ void main() {
   int minutesFryOneSide = int.parse(stdin.readLineSync(encoding: utf8)!);
   int chopsWanted = int.parse(stdin.readLineSync(encoding: utf8)!);
 
+  // Можно решить без if
   // int pansNeeded = (chopsWanted / chopsPerPan).ceil();
   // int minutesFryGeneral = minutesFryOneSide * 2 * pansNeeded;
 
-  // stdout.write(minutesFryGeneral);
+  int minutesFryOneChop = minutesFryOneSide * 2;
+  int pansNeeded;
 
   if (chopsWanted % chopsPerPan == 0) {
-    int minutesFryGeneral =
-        minutesFryOneSide * 2 * (chopsWanted ~/ chopsPerPan);
-    stdout.write(minutesFryGeneral);
+    pansNeeded = chopsWanted ~/ chopsPerPan;
   } else {
     int chopsCanFry = chopsWanted ~/ chopsPerPan;
     int chopsLeft = chopsWanted % chopsPerPan;
-    int pansNeeded = chopsCanFry + chopsLeft;
-    int minutesFryGeneral = minutesFryOneSide * 2 * pansNeeded;
-    stdout.write(minutesFryGeneral);
+    pansNeeded = chopsCanFry + chopsLeft;
   }
+
+  int minutesFryGeneral = minutesFryOneChop * pansNeeded;
+  stdout.write(minutesFryGeneral);
 }

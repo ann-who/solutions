@@ -8,8 +8,7 @@ void main() {
 
   int degSum = 0;
 
-  // why i cant just i == number ???????????
-  for (var i = 0; i < number + 1; i++) {
+  for (var i = 0; i <= number; i++) {
     degSum += i * i;
   }
 
