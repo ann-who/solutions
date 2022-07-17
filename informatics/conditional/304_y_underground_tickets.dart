@@ -6,29 +6,29 @@ import 'dart:io';
 void main() {
   int ridesQuantity = int.parse(stdin.readLineSync(encoding: utf8)!);
 
-  const oneRideTicketPrice = 15;
-  const tenRidesTicketPrice = 125;
-  const sixtyRidesTicketPrice = 440;
+  const int oneRideTicketPrice = 15;
+  const int tenRidesTicketPrice = 125;
+  const int sixtyRidesTicketPrice = 440;
 
   const int tenRides = 10;
   const int sixtyRides = 60;
 
   int totalSixtyRidesTickets = ridesQuantity ~/ sixtyRides;
   int totalTenRidesTickets = (ridesQuantity % sixtyRides) ~/ tenRides;
-  int totalOneRideTickets = ridesQuantity % 10;
+  int totalOneRideTickets = ridesQuantity % tenRides;
 
   int totalPriceTenRidesTickets = totalTenRidesTickets * tenRidesTicketPrice;
   int totalPriceOneRideTickets = totalOneRideTickets * oneRideTicketPrice;
 
   if (totalPriceOneRideTickets > tenRidesTicketPrice) {
     totalOneRideTickets = 0;
-    totalTenRidesTickets = totalTenRidesTickets + 1;
+    ++totalTenRidesTickets;
   }
 
   if ((totalPriceOneRideTickets + totalPriceTenRidesTickets) >
       sixtyRidesTicketPrice) {
     totalTenRidesTickets = 0;
-    totalSixtyRidesTickets = totalSixtyRidesTickets + 1;
+    ++totalSixtyRidesTickets;
   }
 
   stdout.write(

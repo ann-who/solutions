@@ -6,11 +6,14 @@ import 'dart:io';
 void main() {
   int cowsQuantity = int.parse(stdin.readLineSync(encoding: utf8)!);
 
-  if (cowsQuantity % 10 == 1) {
-    stdout.write('$cowsQuantity korova');
-  } else if (2 <= cowsQuantity % 10 && cowsQuantity % 10 <= 4) {
-    stdout.write('$cowsQuantity korovy');
-  } else if (5 <= cowsQuantity % 10 || cowsQuantity % 10 == 0) {
+  bool isExceptionNumber = (11 <= cowsQuantity && cowsQuantity <= 14);
+  int remainder = cowsQuantity % 10;
+
+  if (isExceptionNumber || remainder == 0 || remainder >= 5) {
     stdout.write('$cowsQuantity korov');
+  } else if (remainder == 1) {
+    stdout.write('$cowsQuantity korova');
+  } else if (2 <= remainder && remainder <= 4) {
+    stdout.write('$cowsQuantity korovy');
   }
 }

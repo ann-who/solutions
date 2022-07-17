@@ -6,11 +6,11 @@ import 'dart:io';
 void main() {
   int ridesQuantity = int.parse(stdin.readLineSync(encoding: utf8)!);
 
-  const oneRideTicketPrice = 15;
-  const fiveRidesTicketPrice = 70;
-  const tenRidesTicketPrice = 125;
-  const twentyRidesTicketPrice = 230;
-  const sixtyRidesTicketPrice = 440;
+  const int oneRideTicketPrice = 15;
+  const int fiveRidesTicketPrice = 70;
+  const int tenRidesTicketPrice = 125;
+  const int twentyRidesTicketPrice = 230;
+  const int sixtyRidesTicketPrice = 440;
 
   const int fiveRides = 5;
   const int tenRides = 10;
@@ -19,9 +19,9 @@ void main() {
 
   int totalSixtyRidesTickets = ridesQuantity ~/ sixtyRides;
   int totalTwentyRidesTickets = (ridesQuantity % sixtyRides) ~/ twentyRides;
-  int totalTenRidesTickets = (ridesQuantity % sixtyRides) ~/ tenRides;
-  int totalFiveRidesTickets = (ridesQuantity % sixtyRides) ~/ fiveRides;
-  int totalOneRideTickets = ridesQuantity % 10;
+  int totalTenRidesTickets = (ridesQuantity % twentyRides) ~/ tenRides;
+  int totalFiveRidesTickets = (ridesQuantity % tenRides) ~/ fiveRides;
+  int totalOneRideTickets = ridesQuantity % fiveRides;
 
   int totalPriceTwentyRidesTickets =
       totalTwentyRidesTickets * twentyRidesTicketPrice;
@@ -31,13 +31,13 @@ void main() {
 
   if (totalPriceOneRideTickets > fiveRidesTicketPrice) {
     totalOneRideTickets = 0;
-    totalFiveRidesTickets = totalFiveRidesTickets + 1;
+    ++totalFiveRidesTickets;
   }
 
   if (totalPriceOneRideTickets + totalPriceFiveRidesTickets >
       tenRidesTicketPrice) {
     totalFiveRidesTickets = 0;
-    totalTenRidesTickets = totalTenRidesTickets + 1;
+    ++totalTenRidesTickets;
   }
 
   if ((totalPriceOneRideTickets +
@@ -45,7 +45,7 @@ void main() {
           totalPriceTenRidesTickets) >
       twentyRidesTicketPrice) {
     totalTenRidesTickets = 0;
-    totalTwentyRidesTickets = totalTwentyRidesTickets + 1;
+    ++totalTwentyRidesTickets;
   }
 
   if ((totalPriceOneRideTickets +
@@ -54,7 +54,7 @@ void main() {
           totalPriceTwentyRidesTickets) >
       sixtyRidesTicketPrice) {
     totalTwentyRidesTickets = 0;
-    totalSixtyRidesTickets = totalSixtyRidesTickets + 1;
+    ++totalSixtyRidesTickets;
   }
 
   stdout.write(
