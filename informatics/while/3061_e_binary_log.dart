@@ -1,4 +1,4 @@
-// https://informatics.msk.ru/mod/statements/view.php?id=249&chapterid=3060#1
+// https://informatics.msk.ru/mod/statements/view.php?id=249&chapterid=3061#1
 
 import 'dart:convert';
 import 'dart:io';
