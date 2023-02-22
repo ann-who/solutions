@@ -7,8 +7,8 @@ void main() {
   int givenNumber = int.parse(stdin.readLineSync(encoding: utf8)!);
   int wantedNumber = int.parse(stdin.readLineSync(encoding: utf8)!);
 
-  String minusOperation = '-1\n';
-  String divideOperation = ':2\n';
+  const String minusOperation = '-1\n';
+  const String divideOperation = ':2\n';
 
   while (givenNumber != wantedNumber) {
     if (givenNumber % 2 == 0) {
