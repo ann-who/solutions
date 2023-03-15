@@ -1,4 +1,4 @@
-// https://informatics.msk.ru/mod/statements/view.php?id=192#1
+// https://informatics.msk.ru/mod/statements/view.php?id=192&chapterid=4#1
 
 import 'dart:convert';
 import 'dart:io';
@@ -14,24 +14,27 @@ void main() {
   int midIndex;
 
   for (var i = 0; i < arraysLength[1]; i++) {
-    int leftOk = 0;
-    int rightOk = arraysLength[0] - 1;
+    int leftOkIndex = 0;
+    int rightOkIndex = arraysLength[0] - 1;
+    bool sameNumberExists = false;
 
-    while (rightOk - leftOk > 1) {
-      midIndex = (rightOk + leftOk) ~/ 2;
+    while (leftOkIndex <= rightOkIndex) {
+      midIndex = (rightOkIndex + leftOkIndex) ~/ 2;
 
-      if (firstArray[midIndex] < secondArray[i]) {
-        leftOk = midIndex;
+      if (firstArray[midIndex] == secondArray[i]) {
+        sameNumberExists = true;
+        break;
+      } else if (firstArray[midIndex] < secondArray[i]) {
+        leftOkIndex = midIndex + 1;
       } else {
-        rightOk = midIndex - 1;
+        rightOkIndex = midIndex - 1;
       }
     }
 
-    if (secondArray[i] - firstArray[leftOk] <=
-        firstArray[rightOk] - secondArray[i]) {
-      stdout.write('${firstArray[leftOk]}\n');
+    if (sameNumberExists) {
+      stdout.write('YES\n');
     } else {
-      stdout.write('${firstArray[rightOk]}\n');
+      stdout.write('NO\n');
     }
   }
 }
