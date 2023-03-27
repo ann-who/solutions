@@ -33,7 +33,7 @@ void main() {
     int rightInt = totalElementsQuantity - 1 - i;
 
     var temp = leftInt;
-    leftInt = integers[rightInt];
+    integers[i] = integers[rightInt];
     integers[rightInt] = temp;
   }
 
